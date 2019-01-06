@@ -7,7 +7,7 @@ This is simulation of tensegrity via openFrameworks.
 
 - Ubuntu16.04LTS
 - openFrameworks v0.9.8
-    - I don$B!G(Bt use physical engine like ofBox2d.
+    - I don’t use physical engine like ofBox2d.
 
 ## video
 
@@ -32,7 +32,7 @@ This is simulation of tensegrity via openFrameworks.
 
 ### Spring
 
-- $f=K_s(l-l_0)d+K_d(v_1$B!&(Bd-v_0$B!&(Bd)d$
+- $f=K_s(l-l_0)d+K_d(v_1・d-v_0・d)d$
 - $K_s$ : spring constant 
 - $l$ : current length 
 - $l_0$ : rest length 
@@ -43,11 +43,11 @@ This is simulation of tensegrity via openFrameworks.
 ### Update particles
 
 - Verlet Integration
-- $x_{n+1}$ $B"+(B  $x_n$ + ($x_n$-$x_{n - 1}$) + $$B&$(Bt^2$ $F_n$ / $m$
+- $x_{n+1}$ ←  $x_n$ + ($x_n$-$x_{n - 1}$) + $Δt^2$ $F_n$ / $m$
 
 ### Strut
 
-- $x_0$ $B"+(B  $(x_0 + x_1)/2.0$ - $(l_0/2.0)$ $d$ 
+- $x_0$ ←  $(x_0 + x_1)/2.0$ - $(l_0/2.0)$ $d$ 
     - d : the unit vector toward the other particle
     - $l_0$ is the rest length.
 - This update does not move the center of gravity of the strut.
@@ -59,7 +59,7 @@ have to jump. I use the Position-based method for collision against
 the ground.
 
 - $ z_{n+1} = r $
-- $ z_n $B"+(B r + z_{n+1} - z_n $ 
+- $ z_n ← r + z_{n+1} - z_n $ 
 
 z is the z position of a particle. r is the radius of particles. 
 
@@ -72,34 +72,34 @@ For x, y, I add friction for collision.
 
 - item Common value
     - $M$ = 0.20
-    - $(J\Delta(B t$ = 0.010 
+    - $¥Delta t$ = 0.010 
     - $r$ = 5.0
     - $u$ = 0.80
 
 - video1
-    - $(J\bm{x}$(B = (-400.0, 200.0, 250.0)
-    - $(J\bm{v}$(B = (-0.70, 0.80, 0.50)
+    - $¥bm{x}$ = (-400.0, 200.0, 250.0)
+    - $¥bm{v}$ = (-0.70, 0.80, 0.50)
     - $ K_s$ = 20.0 
     - $ K_b$ = 5.0 
     - $ g $ = -9.8
 
 - Video2
-    - $(J\bm{x}$(B = (-500.0, 800.0, 250.0)
-    - $(J\bm{v}$(B = (-0.30, 1.00, 0.40) 
+    - $¥bm{x}$ = (-500.0, 800.0, 250.0)
+    - $¥bm{v}$ = (-0.30, 1.00, 0.40) 
     - $ K_s$ = 20.0 
     - $ K_b$ = 5.0
     - $ g $ = -9.8
 
 - Video3
-    - $(J\bm{x}$(B = (-500.0, 800.0, 250.0)
-    - $(J\bm{v}$(B = (-0.30, 1.00, 0.40) 
+    - $¥bm{x}$ = (-500.0, 800.0, 250.0)
+    - $¥bm{v}$ = (-0.30, 1.00, 0.40) 
     - $ K_s$ = 20.0
     - $ K_b$ = 5.0 
     - $ g $ = -0.98
 
 - Video4
-    - $(J\bm{x}$(B = (-500.0, 800.0, 250.0)
-    - $(J\bm{v}$(B = (-0.30, 1.00, 0.40)
+    - $¥bm{x}$ = (-500.0, 800.0, 250.0)
+    - $¥bm{v}$ = (-0.30, 1.00, 0.40)
     - $ K_s$ = 1.1 
     - $ K_b$ = 0.6 
     - $ g $ = -0.98 
